@@ -1,7 +1,7 @@
 import React from "react";
 import { GlobalStyle } from "./GlobalStyle";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import ToDoList from "./ToDoList";
+import ToDoList from "./components/ToDoList";
 
 function Root() {
   return (

@@ -6,6 +6,11 @@ export interface IToDo {
   status: "TO_DO" | "DOING" | "DONE";
 }
 
+export const statusAtom = atom({
+  key: "status",
+  default: "TO_DO",
+});
+
 export const toDoAtom = atom<IToDo[]>({
   key: "toDo",
   default: [],
@@ -15,10 +20,12 @@ export const toDoSelector = selector({
   key: "toDoSelector",
   get: ({ get }) => {
     const toDos = get(toDoAtom);
-    return [
-      toDos.filter((toDo) => toDo.status === "TO_DO"),
-      toDos.filter((toDo) => toDo.status === "DOING"),
-      toDos.filter((toDo) => toDo.status === "DONE"),
-    ];
+    const status = get(statusAtom);
+    // return [
+    //   toDos.filter((toDo) => toDo.status === "TO_DO"),
+    //   toDos.filter((toDo) => toDo.status === "DOING"),
+    //   toDos.filter((toDo) => toDo.status === "DONE"),
+    // ];
+    return toDos.filter((todo) => todo.status === status);
   },
 });

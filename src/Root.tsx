@@ -2,6 +2,7 @@ import React from "react";
 import { GlobalStyle } from "./GlobalStyle";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import ToDoList from "./components/ToDoList";
+import FixToDoList from "./components/FixToDoList";
 
 function Root() {
   return (
@@ -19,7 +20,8 @@ function Root() {
         </Helmet>
       </HelmetProvider>
       <h1>Root</h1>
-      <ToDoList />
+      {/* <ToDoList /> */}
+      <FixToDoList />
     </>
   );
 }

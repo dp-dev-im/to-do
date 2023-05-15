@@ -5,7 +5,8 @@ import { Statuses, statusAtom, toDoAtom, toDoSelector } from "../atoms";
 import NewToDo from "./NewToDo";
 
 function ToDoList() {
-  const toDoList = useRecoilValue(toDoAtom);
+  // const toDoList = useRecoilValue(toDoAtom);
+  const toDoList = useRecoilValue(toDoSelector)
   // console.log(toDoList);
   const selectorOutput = useRecoilValue(toDoSelector);
   const [toDo, doing, done] = useRecoilValue(toDoSelector);

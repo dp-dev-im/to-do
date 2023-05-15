@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useSetRecoilState } from "recoil";
-import { toDoAtom } from "../atoms";
+import { Statuses, toDoAtom } from "../atoms";
 
 interface IForm {
   toDo: string;
@@ -12,7 +12,7 @@ function CreateToDo() {
   const handleValid = (data: IForm) => {
     // console.log(data);
     setToDoList((allToDoList) => [
-      { id: Date.now(), text: data.toDo, status: "TO_DO" },
+      { id: Date.now(), text: data.toDo, status: Statuses.TO_DO },
       ...allToDoList,
     ]);
 
@@ -28,6 +28,9 @@ function CreateToDo() {
         />
         <button>Add</button>
       </form>
+      {
+        
+      }
     </>
   );
 }

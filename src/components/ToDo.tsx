@@ -1,5 +1,5 @@
 import { useSetRecoilState } from "recoil";
-import { IToDo, toDoAtom } from "../atoms";
+import { IToDo, Statuses, toDoAtom } from "../atoms";
 
 function ToDo(toDo: IToDo) {
   const setToDos = useSetRecoilState(toDoAtom);
@@ -21,7 +21,7 @@ function ToDo(toDo: IToDo) {
       return [
         ...oldToDos.slice(0, idIndex),
         newToDo,
-        ...oldToDos.slice(idIndex + 1)
+        ...oldToDos.slice(idIndex + 1),
       ];
     });
   };
@@ -37,16 +37,16 @@ function ToDo(toDo: IToDo) {
       <span>
         <li>{toDo.text}</li>
       </span>
-      {toDo.status !== "TO_DO" && (
-        <button onClick={() => onClick("TO_DO")}>To Do</button>
+      {toDo.status !== Statuses.TO_DO && (
+        <button onClick={() => onClick(Statuses.TO_DO)}>To Do</button>
       )}
-      {toDo.status !== "DOING" && (
-        <button onClick={() => onClick("DOING")}>Doing</button>
+      {toDo.status !== Statuses.DOING && (
+        <button onClick={() => onClick(Statuses.DOING)}>Doing</button>
       )}
-      {toDo.status !== "DONE" && (
-        <button onClick={() => onClick("DONE")}>Done</button>
+      {toDo.status !== Statuses.DONE && (
+        <button onClick={() => onClick(Statuses.DONE)}>Done</button>
       )}
-      <>
+      {/* <>
         <span>
           <li>{toDo.text}</li>
         </span>
@@ -65,7 +65,7 @@ function ToDo(toDo: IToDo) {
             NDone
           </button>
         )}
-      </>
+      </> */}
     </>
   );
 }

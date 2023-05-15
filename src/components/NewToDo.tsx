@@ -1,11 +1,8 @@
 import { useSetRecoilState } from "recoil";
-import { IToDo, toDoAtom } from "../atoms";
+import { IToDo, Statuses, toDoAtom } from "../atoms";
 
 function NewToDo(toDo: IToDo) {
-  // console.log(toDo);
-
   const setToDoList = useSetRecoilState(toDoAtom);
-
   const onClick = (status: IToDo["status"]) => {
     // console.log(status);
     setToDoList((oldToDos) => {
@@ -23,21 +20,24 @@ function NewToDo(toDo: IToDo) {
     });
   };
 
+  console.log(toDo.text);
+
   return (
     <>
-      <span>{toDo.text}</span>
-      <>
-        {toDo.status !== "TO_DO" && (
-          <button onClick={() => onClick("TO_DO")}>TO DO</button>
+      <button>test</button>
+      <li>
+        <span>{toDo.text}</span>
+        {toDo.status !== Statuses.TO_DO && (
+          <button onClick={() => onClick(Statuses.TO_DO)}>TO DO</button>
         )}
-        {toDo.status !== "DOING" && (
-          <button onClick={() => onClick("DOING")}>Doing</button>
+        {toDo.status !== Statuses.DOING && (
+          <button onClick={() => onClick(Statuses.DOING)}>Doing</button>
         )}
-        {toDo.status !== "DONE" && (
-          <button onClick={() => onClick("DONE")}>Done</button>
+        {toDo.status !== Statuses.DONE && (
+          <button onClick={() => onClick(Statuses.DONE)}>Done</button>
         )}
         <br />
-      </>
+      </li>
     </>
   );
 }

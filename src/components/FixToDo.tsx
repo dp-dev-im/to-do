@@ -26,6 +26,22 @@ function FixToDo(toDo: IToDo) {
     });
   };
 
+  // const onDelete = (getDelete: string) => {
+  //   setToDos((oldToDos) => {
+  //     const statusIndex = oldToDos.findIndex((aToDo) => aToDo.id === toDo.id);
+  //     return [
+  //       ...oldToDos.slice(0, statusIndex),
+  //       ...oldToDos.slice(statusIndex + 1),
+  //     ];
+  //   });
+  // };
+
+  const onDelete = () => {
+    setToDos((oldToDos) => {
+      return oldToDos.filter((aToDo) => aToDo.id !== toDo.id);
+    });
+  };
+  console.log(toDo);
 
   return (
     <li>
@@ -39,6 +55,8 @@ function FixToDo(toDo: IToDo) {
       {toDo.status !== "DONE" && (
         <button onClick={() => onClick(Statuses.DONE)}>Done</button>
       )}
+      {/* <button onClick={() => onDelete("DELETE")}>Delete</button> */}
+      <button onClick={onDelete}>Delete</button>
     </li>
   );
 }

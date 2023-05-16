@@ -10,10 +10,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // <React.StrictMode>
-    <RecoilRoot>
-      <ThemeProvider theme={theme}>
-        <Root />
-      </ThemeProvider>
-    </RecoilRoot>
+  <RecoilRoot>
+    <ThemeProvider theme={theme}>
+      <Root />
+    </ThemeProvider>
+  </RecoilRoot>
   // </React.StrictMode>
 );

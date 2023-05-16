@@ -10,14 +10,17 @@
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
+    "@types/react-beautiful-dnd": "^13.1.4",
     "@types/react-dom": "^18.0.0",
     "@types/react-helmet-async": "^1.0.3",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
+    "gh-pages": "^5.0.0",
     "helmet": "^7.0.0",
     "i": "^0.3.7",
     "npm": "^9.6.6",
     "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0",
     "react-hook-form": "^7.43.9",
@@ -32,7 +35,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run-script build"
   },
   "eslintConfig": {
     "extends": [
@@ -51,5 +56,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://dp-dev-im.github.io/to-do"
 }

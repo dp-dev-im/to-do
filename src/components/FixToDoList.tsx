@@ -1,9 +1,14 @@
-import { useRecoilState, useRecoilValue } from "recoil";
+import { atom, useRecoilState, useRecoilValue } from "recoil";
 import FixCreateToDo from "./FixCreateToDo";
 import { toDoAtom, toDoSelector } from "../atoms";
 import FixToDo from "./FixToDo";
 import { Statuses, fixToDoSelector, statusState } from "../FixAtom";
 import React from "react";
+
+export const categoriesAtom = atom({
+  key: "cetegories",
+  default: "",
+});
 
 function FixToDoList() {
   // const toDos = useRecoilValue(toDoAtom);
@@ -17,6 +22,9 @@ function FixToDoList() {
     );
     // console.log(e.currentTarget.value);
   };
+
+  const [categories, setCategories] = useRecoilState(categoriesAtom);
+
   return (
     <>
       <h1>Fix</h1>

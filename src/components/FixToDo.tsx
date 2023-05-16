@@ -41,7 +41,7 @@ function FixToDo(toDo: IToDo) {
       return oldToDos.filter((aToDo) => aToDo.id !== toDo.id);
     });
   };
-  console.log(toDo);
+  // console.log(toDo);
 
   return (
     <li>
